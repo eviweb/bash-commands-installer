@@ -119,7 +119,7 @@ function addType()
     if [ ! -d "$src" ]; then
         error "SRC: $src must be a valid directory."
     fi
-    ln -s "$src" "$path"
+    ln -s $(readlink -f "$src") "$path"
     msg "TYPE: $type was correctly added."
     echo ""
 }
